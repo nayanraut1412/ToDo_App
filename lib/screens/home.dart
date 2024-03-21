@@ -24,12 +24,16 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: tdBGColor,
       appBar: _buildAppBar(),
       body: Stack(
         children: [
           Container(
+            //print(screenHeight);
+            height: screenHeight * 0.82,
+            // height: 650,
             padding: EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 15,
@@ -71,9 +75,9 @@ class _HomeState extends State<Home> {
               Expanded(
                 child: Container(
                   margin: EdgeInsets.only(
-                    bottom: 20,
-                    right: 20,
-                    left: 20,
+                    bottom: 10,
+                    right: 10,
+                    left: 10,
                   ),
                   padding: EdgeInsets.symmetric(
                     horizontal: 20,
@@ -89,7 +93,7 @@ class _HomeState extends State<Home> {
                         spreadRadius: 0.0,
                       ),
                     ],
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   child: TextField(
                     controller: _todoController,
@@ -101,8 +105,8 @@ class _HomeState extends State<Home> {
               ),
               Container(
                 margin: EdgeInsets.only(
-                  bottom: 20,
-                  right: 20,
+                  bottom: 10,
+                  right: 10,
                 ),
                 child: ElevatedButton(
                   child: Text(
@@ -171,6 +175,14 @@ class _HomeState extends State<Home> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
       ),
       child: TextField(
         onChanged: (value) => _runFilter(value),
